@@ -1,6 +1,6 @@
 // Two-step approval for change requests: the PM approves first, then the customer signs off. Once both agree, the
 // request itself becomes the change order: renamed CO-00N, given the agreed hours, and moved to "Approved changes"
-// as open work. Before that, no work exists. Either side can withdraw until it's delivered. Who clicked always
+// as open work. Withdrawal checks the current task status. Who clicked always
 // comes from Rocketlane (the server context), never from the browser, and every step is logged.
 const store = require("./store");
 const { KIND_LABELS, approvalHash } = require("./classify");
@@ -115,6 +115,7 @@ const override = async (r, rl, setup, task, record, { kind, reason }, user, who)
 
 const pmDecide = async (r, rl, setup, task, record, { decision, hours, note }, user, who) => {
   mustBe(who.isOwner, "Only the project owner can approve or reject a change request.");
+  mustBe(["approve", "absorb", "reject"].includes(decision), "Choose approve, no charge, or reject.");
   if (effectiveKind(record) !== "change_request") {
     // From "Needs review" the PM's decision is the review: treat it as a change request, logged as their call (and
     // kept as an eval case if the model guessed otherwise). A confident result needs an explicit type change first.
@@ -218,6 +219,7 @@ const sendBackIfEdited = async (r, rl, setup, task, record) => {
 
 const customerDecide = async (r, rl, setup, task, record, { decision, note }, user, who) => {
   mustBe(who.isCustomer, "Only a customer on this project can sign off.");
+  mustBe(["approve", "decline"].includes(decision), "Choose approve or decline.");
   if (await sendBackIfEdited(r, rl, setup, task, record)) {
     throw new Error("This request was edited after your PM approved it, so it has gone back to them to review the hours. Nothing was signed off.");
   }
@@ -249,7 +251,7 @@ const customerDecide = async (r, rl, setup, task, record, { decision, note }, us
 };
 
 // Undo, until the work is delivered. An agreed change goes back to "Customer requests" under its original name;
-// its CO number is retired, never reused.
+// its CO number is retired while number reservations remain in storage.
 const withdraw = async (r, rl, setup, task, record, { note }, user, who) => {
   const a = record.approval || {};
   const mine = (a.decisions || {})[user.userId];

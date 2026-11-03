@@ -1,110 +1,198 @@
 # PRD: Change request decisions in Rocketlane
 
-**Sowrav Sunil · November 2026 · Prototype: two Rocketlane custom apps, v1.5**
+**Sowrav Sunil · 3 November 2026 · Prototype v1.5, with local review updates**
+
+An independent product exploration built as two Rocketlane custom apps. The prototype runs on a trial account with
+fictional project data. It has not been used on live customer projects. This document explains the problem,
+product choices, what I built, and what I would validate before taking it further.
 
 ## Problem
 
-Mid-project, customers ask for more: "while you're in there, can you quickly also...". Someone has to decide, on the
-spot, whether it's covered by the SOW, whether to charge for it, and who agreed. Today that decision lives in a
-PM's head, a call, or a chat thread.
+Halfway through a project, the customer asks for more: "while you're in there, can you quickly also...". Someone
+has to decide whether it's covered by the SOW, whether to charge for it, and who needs to agree. That decision
+can stay in a PM's head, a call, or an email thread. The team struggles to account for the extra work it absorbs,
+and the customer may not remember agreeing to a charge.
 
-I asked five people who deliver implementation work: two implementation partners in conversation in October, and three more
-in writing (two implementation partners and an independent consultant). They agree on four things:
+I asked five people who deliver implementation work: two implementation partners in conversation in October,
+and three more in writing, including an independent consultant. Their answers shaped the prototype:
 
-- **Everyone has a line between "do it free" and "charge for it", and nobody writes it down.** For two of them it's
-  about 30 minutes to 2 hours of simple work: "simple frontend configurations that do not require technical
-  resources". One absorbs most asks because its money comes from licences.
-- **Requests start informally**, on project calls or in DMs, and get formalised by email afterwards.
-- **The customer approves the commercials**, not just the effort: "We proceed only after receiving the customer's
+- **Small asks are often absorbed.** Where people named a threshold, it ranged from 30 minutes to two hours of
+  simple work. Whether it needs development or affects the timeline also matters. One partner absorbs most asks
+  because its money comes from licences.
+- **Requests start informally.** Calls and DMs come first; email or a formal change request follows.
+- **Customers approve commercials.** One partner said: "We proceed only after receiving the customer's
   confirmation and approval of the commercials."
-- **Free work is invisible.** "We do not currently maintain a separate tracker for additional requests or distinguish
-  between free and chargeable activities." One estimates 5-10% of project hours goes free.
+- **Extra effort is hard to account for.** One said: "We do not currently maintain a separate tracker for
+  additional requests or distinguish between free and chargeable activities." Another estimated that 5–10% of
+  project hours go unpaid. That is one person's estimate, not a market benchmark.
+- **Charge or free is not the whole picture.** One partner uses prepaid maintenance credits, then quotes the
+  remainder or moves it to a later phase. That partner also needs approval from two people on each side.
 
-They'd trust a tool that lives where the work already happens, keeps a clear audit trail, and causes no surprise
-charges.
+The evidence is useful but narrow: four of the five are implementation partners. It does not yet establish that
+in-house SaaS services teams have the same needs. One partner said their existing process was sufficient for
+their company size.
 
-Two more things came up. Outcomes are richer than charge or free: one partner draws extra work from the customer's
-prepaid maintenance credits, and quotes it or moves it to a later phase when the credits don't cover it. And
-approval often needs two people on each side: the customer's project owner and sponsor, and our PM and delivery
-director.
+## Who this is for
 
-## Who it's for
+The initial target is a delivery PM running several fixed-fee or SOW-based implementation projects. They need to
+make a quick, defensible call on extra work. The customer approver needs to know what they are agreeing to, and
+the delivery head needs a record of the extra work the team has committed to absorb.
 
-Delivery and implementation PMs running several fixed-fee or SOW-based projects at once in Rocketlane, and the
-customer's approver. Not small teams with a working manual process: one partner said the idea is helpful, "but for
-our company size, we are okay with... the process that we currently build". The value grows with the number of
-projects whose free work nobody adds up.
+My hypothesis is that the value grows with concurrent project volume. Small teams with a working manual process
+are a weaker starting segment. I have not validated a project-count threshold.
 
-## What Rocketlane has today
+## Where it fits
 
-Nitro Signals can flag scope talk in calls and emails. Tasks have generic approvals. Change orders can live as extra
-budgets (multi-budget). What's missing is the step in between: judging a request against this project's signed
-scope, sizing it, deciding charge vs no charge vs no, and turning "yes" from both sides into tracked work.
+Rocketlane already has task approvals, and multi-budget supports change orders. Its published material describes
+Nitro Signals identifying scope-related conversations. This proposal focuses on the decision between a request
+being raised and extra work being authorised: check it against the project's SOW, size it, record the PM's call,
+and collect customer approval where needed.
 
-## What I built
+I could not test Nitro or multi-budget on my trial. The prototype therefore uses pasted messages and ends at an
+approved task. It does not establish that Rocketlane lacks every part of this workflow. In the product, I would
+first look to extend native approvals and budgets. The custom apps let me test the proposed experience within
+the access I had. Platform findings and trade-offs are in [DECISIONS.md](DECISIONS.md).
 
-Two custom apps, running on Rocketlane's own app platform:
+## Goals and boundaries
 
-0. **Log.** Requests start in calls, chats and emails. The PM pastes the message into a "Log a request" tab; a
-   writing model drafts one request per ask, each quoting the customer's exact words (checked in code), and flags
-   asks that are already logged. The PM edits and logs them into the project's "Customer requests" phase.
-1. **Check.** Each request in the project's "Customer requests" phase is checked against the project's SOW task by a
-   decision model (Jev): in scope, change request, blocker, or noise, plus the SOW line it touches, a rough size,
-   and a confidence. Below 60%, the PM decides. Blockers are marked at risk.
-2. **Decide.** The PM charges for it (sent to the customer), does it at no charge (logged, no sign-off), or rejects it
-   with a reason. A per-team line ("no charge under 2 hours") suggests which; the PM decides and the history notes
-   whether it matched.
-3. **Sign off.** The customer approves in the portal. Who counts: the project's customer champion, every customer, or
-   the first to respond. An edit after the PM's approval sends it back to the PM.
-4. **Turn it into work.** The request itself becomes CO-001 or NC-001 in "Approved changes", with the agreed hours.
-   Withdrawable until work starts; numbers are never reused.
+The product should make three things possible:
 
-## How I'll know it works
+1. Every out-of-scope request gets a recorded decision: charge, no charge, or decline.
+2. The team can see the estimated hours it has agreed to absorb, by project.
+3. The customer and PM can trace an approval to the same request and hours, including later changes.
 
-- **North star:** share of out-of-scope requests that get a deliberate, recorded decision (charged or no charge).
-- **Supporting:** hours charged vs given away per project; time from request to decision; PM agreement with the
-  check (tracked in the app; a drop means new kinds of request or a vague SOW).
-- **Guardrail:** false "change request" flags the PM overrides. Each one risks asking a customer to pay twice.
-- **Pilot:** three live projects with the app vs three recent ones without, same team.
+The model helps classify and size the request. It never authorises work or sets the price; the PM decides.
+A false change-request flag is especially costly because it can lead to asking a customer to pay for work their
+SOW already covers.
 
-## Does the check hold up?
+The prototype does not detect requests in calls, calculate prices, update budgets, invoice customers, or amend
+contracts. It supports one English SOW per project. Its ledger measures approved estimates, not actual effort,
+revenue, or margin.
 
-| Set | Result |
+## Proposed experience
+
+The PM pastes a customer message into **Log a request**. The app drafts one task per ask, quoting the customer's
+words, and the PM reviews the drafts before logging them.
+
+When the PM opens **Change requests**, the app checks each request against the project's SOW. It shows a type,
+the relevant SOW item, a rough size, and confidence. Below 0.6, it marks the request **Needs review**. In-scope
+work and blockers stay in normal project delivery; confirmed extra work needs a business decision.
+
+The PM chooses charge, no charge, or decline. A team setting, such as "no charge under two hours", suggests an
+option without enforcing it. The PM sets the hours. A chargeable request goes to the customer for sign-off;
+no-charge work is approved internally; a declined request carries a reason the customer can see.
+
+Once agreed, the request itself becomes the work: CO-001 or NC-001, with its hours, in **Approved changes**.
+Keeping one task avoids marking a request complete while its delivery work has not started. The project ledger
+and export retain the decision history.
+
+## Prototype requirements and status
+
+The core flow was built and tested on the trial with throwaway requests. Local review updates clarify ledger
+labels and restrict internal views to the project owner; these have not yet been smoke-tested on the trial.
+Detailed implementation notes and limits are in [DECISIONS.md](DECISIONS.md).
+
+| Requirement | Implemented behaviour |
 |---|---|
-| 48 retail requests I labelled (11 deliberately ambiguous) | 46/48 types right in every run, 17/17 change requests caught, 1 false flag |
-| At the 0.6 confidence bar | 44/48 handled alone, 0 mistakes, 4 sent to the PM |
-| Same 48, SOW read from the live Rocketlane task | Same result |
-| 15 logistics requests, labelled blind, threshold frozen | Pending |
+| Capture the customer's ask | One draft per ask, with a source quote. Drafts with quotes absent from the source are dropped. A thank-you produces no request. Already logged asks are flagged; the original message is kept in a team-only note. |
+| Check the project's scope | Read the project's “SOW scope” task. Return in scope, change request, blocker, or noise; a SOW reference; a size range; and confidence. Below 0.6, show “Needs review”. Mark blockers at risk. |
+| Keep the PM responsible | Only the project owner can decide. Charge and no charge require hours; decline requires a reason. Record the decision and whether it followed the team's size guideline. |
+| Collect customer sign-off | Support champion, everyone, or first-response rules. Capture named approvers for champion and everyone policies; first response uses current customer membership. Champion falls back to first response if no champion is set. Only eligible customer approvers see the controls. |
+| Handle changes and repeated actions | Changed request text before customer sign-off returns the request to the PM. Concurrent clicks are guarded. Approved tasks can be withdrawn while not in progress, and numbers are not deliberately reused while reservation records remain. |
+| Turn the decision into work | Rename the same task CO-00N or NC-00N, set the agreed hours, and move it to “Approved changes”. Keep the customer's words on the task. |
+| Make decisions visible | Show change-order and no-charge hours against budgeted hours. Export current decisions and retained events with actor and timestamp (up to 50 events per request). Keep model scores out of the customer-facing app. |
 
-The 0.6 bar was picked from the data: at 0.5 a false change request slipped through when its confidence moved from
-0.49 to 0.52 between runs. All requests are mine, so these numbers say "it works on this kind of request", not
-"it's 96% accurate on real traffic".
+### What the prototype does not yet prove
 
-## Limits and risks
+**Hours are not commercial approval.** The portal currently approves scope and hours. It does not capture an
+agreed price or change the contract value. Before live use, I would require an amount, currency, and evidence of
+accepted commercial terms, either in the product or through the team's existing approval process. Rate-card
+calculation can follow; evidence of commercial approval cannot.
 
-- **Hours, not price.** The customer approves hours; rate cards aren't applied.
-- **No budget line.** Multi-budget isn't enabled on my trial, so an agreed change doesn't touch the budget.
-- **Checked when opened, not in real time.** Custom apps can't receive webhooks, and scheduled jobs run without
-  credentials (I tested both). A Rocketlane notification brings the PM to the request.
-- **One request, one change order.** A message with three asks needs splitting first.
-- **The app's record is the source of truth.** Editing its task fields directly in Rocketlane isn't picked up.
-- **Only the project owner acts as PM**, and sign-off is a recorded click, not a contract amendment.
+**Approval needs to cover the whole version.** The current edit check covers request text. Live use would need
+to bind scope, hours, commercial terms, SOW version, and named approvers. Changing any of these before work starts
+should invalidate the relevant approval and return the request to the PM. Changes after work starts need a
+separate recorded amendment. Moving a task back to “To do” should not erase the fact that work began.
 
-## Next
+**Some approval rules need further verification.** The code implements: under “everyone”, all must approve and
+one rejection ends the round; under “first response”, the first eligible approval or rejection decides. Replacing
+an approver should start a fresh round; that still needs implementation. Silence leaves the request pending. These cases need explicit testing before
+live use, alongside stale responses and recovery from partial failures.
 
-1. Price: hours × the project's rate card, shown to the PM before approving and to the customer at sign-off.
-   The partners who charge all said the customer approves commercials, not hours.
-2. Two more outcomes: draw from prepaid credits (with the balance visible to both sides), and defer to a later phase.
-3. Approval on our side too: a second internal approver (e.g. the delivery director) above a size limit, and named
-   pairs on the customer's side (owner and sponsor). The "every named customer" rule already covers the second.
-4. The line isn't only hours: partners also ask "does it need development?" and "does it change the timeline or core
-   functionality?". A second model question could check that.
-5. Budget line per change order when multi-budget is on.
-6. Signals as an input: a flagged call becomes a request without the paste (Signals has no webhook or project link today).
-7. Notifications, read-only decision fields, and splitting multi-ask requests.
+**The ledger is a record of commitments.** The revised labels are “Agreed change-order hours” and
+“Approved no-charge hours”; withdrawn decisions are excluded from these totals. Pending requests remain in the
+request list. The current percentage uses current budgeted hours, with no percentage for missing or zero budgets. For a pilot,
+I would freeze the original budget as the baseline so later budget changes do not hide earlier commitments.
 
-## Open questions for Rocketlane
+Direct edits to task fields can drift from the app's record. The app also checks requests when opened, not in the
+background, and does not send its own notifications. Those limits need reconciliation checks and a reliable
+follow-up process before a live trial.
 
-- Is multi-budget the intended home for change orders, and should the approval live on the budget itself?
-- Could custom apps subscribe to task events, or run scheduled jobs with credentials?
-- Where does this sit relative to Nitro: a feature of Signals, or its own agent?
+## What I tested
+
+The development set contains 48 synthetic retail requests, including 11 deliberately ambiguous examples. Labels
+were drafted with AI help and reviewed by me. The original two runs and a check using the live SOW each classified
+46 of 48 correctly and identified all 17 labelled change requests.
+
+At a 0.6 threshold, 44 requests met the confidence threshold with no type errors among them; four were flagged
+for closer review. The 3 November run, after introducing five size ranges, had the same 46 of 48 type accuracy,
+with 45 above the threshold and no type errors among those 45. The PM still decides on every request.
+
+I chose 0.6 using this same development set: a false change-request result crossed 0.5 between runs. These results
+show the approach works on these examples, not that it is 96% accurate on customer traffic. Confidence has not
+been calibrated as a probability of correctness. Sizing is only a rough aid: the latest run matched the labelled
+size range 59% of the time. Full results are in [eval/RESULTS.md](eval/RESULTS.md).
+
+The next test is the 15-request logistics holdout. Labels must be fixed without viewing model output, with the
+model, prompts and threshold frozen before the run. I would report error counts, especially confident false
+change requests, and how many requests need review. Any confident false change request needs investigation
+before a customer trial. If I tune on this set, it becomes a regression set; a fresh set is needed for independent
+validation. Fifteen examples alone cannot establish readiness for production.
+
+## How I would measure value
+
+I would propose a four-week trial across three suitable projects, with three recent projects from the same team
+as a baseline. This is a validation plan, not a committed rollout. Project stage, size and complexity would need
+to be recorded; using the same team does not remove those differences.
+
+| Measure | How I would use it |
+|---|---|
+| Decision coverage | Share of confirmed out-of-scope requests with a recorded charge, no-charge, or decline decision. Review project conversations independently each week, then reconcile them with the app so missed requests count in the denominator. An initial hypothesis is 90% coverage. |
+| Time to PM decision | Median working time from logging to decision, with an initial hypothesis of two working days or less. Also report requests still pending and the delay between the original ask and logging. |
+| No-charge visibility | Approved no-charge estimated hours for each project, as a share of original budgeted hours. Actual unpaid effort would need time-tracking data. |
+| Classification errors | Compare model types with explicit PM scope judgements, then review disagreements. Track confident false change requests separately. A no-charge business decision is not automatically a model correction. |
+| Approval integrity | Check that approved work matches the approved version and commercial evidence, with no unauthorised or duplicate approvals. |
+
+The coverage and turnaround targets are starting hypotheses. I would agree them with the participating team
+before testing, and report counts alongside percentages. Low request volume or inaccessible conversations would
+limit the conclusion. A customer being asked to approve work already covered by the SOW would require the affected
+flow to pause and the cause to be addressed.
+
+The next investment depends on whether PMs consistently use the flow, missing decisions become visible, and
+approvals remain trustworthy. Invoice disputes and margin impact need a longer observation period. A four-week
+trial should not claim to prove either.
+
+## What I would validate next
+
+**Does the need carry over to Rocketlane's services customers?** I would speak with three to five in-house
+onboarding or professional services teams and walk through recent real requests, including ones they absorbed.
+That would test the segment assumption and whether the added decision step earns its place in their workflow.
+
+**Where should the approval live?** My starting preference is to extend native approvals and connect the result
+to a change-order budget. I would review the existing workflow with Rocketlane's product team before proposing
+a separate approval system. My trial access was not enough to settle this.
+
+**What constitutes approval for the customer?** I would inspect the team's actual change-control process: who
+can approve, whether email is sufficient, and when a signature is required. The prototype's portal click should
+not be presented as a substitute for those terms.
+
+## Priorities after validation
+
+1. **Commercial terms and approval integrity.** Capture accepted price and evidence, bind approvals to a complete
+   version, and reconcile direct task edits. These come before live commercial use.
+2. **Rate cards and budget connection.** Reduce manual entry and link approved work to its financial record.
+   Multi-budget access is needed to test that path.
+3. **Credits, deferral and internal approval limits.** Research surfaced these needs, but their priority depends
+   on the target team's process and frequency of use.
+4. **Signals integration and background checks.** Reduce manual intake once project linkage and platform access
+   are available. The prototype does not depend on that integration.

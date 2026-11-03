@@ -14,6 +14,7 @@ const item = (x) => `
       x.approvedBy.length ? ` · approved by ${esc(x.approvedBy.join(", "))}` : ""}${
       x.waitingOn.length ? ` · waiting on ${esc(x.waitingOn.join(", "))}` : ""}</span></div>` : ""}
     ${x.canDecide ? `
+      <p class="muted">This confirms the scope and estimated hours. Price and commercial approval are handled separately.</p>
       <div class="row"><span class="k">Note</span><input class="note" placeholder="Optional" style="flex:1"></div>
       <button data-decision="approve">Approve ${esc(x.hours)} hours</button>
       <button data-decision="decline">Decline</button>` : ""}

@@ -16,9 +16,9 @@ const resultCard = (r, asked) => {
     ? `${badge(r.label)} <span class="muted">set by the PM (the check said ${esc(TYPES[r.kind])})${o.reason ? `: ${esc(o.reason)}` : ""}</span>`
     : r.needsReview
       ? `${badge("Needs review")} <span class="muted">not sure: looks like ${esc(r.kindLabel)} (${pct(r.confidence)}), so you decide</span>`
-      : `${badge(r.label)} <span class="muted">${pct(r.confidence)} sure</span>`;
+      : `${badge(r.label)} <span class="muted">Model confidence: ${pct(r.confidence)}</span>`;
   const sow =
-    r.kind === "noise" ? "" : r.sowItem === "none" || !r.sowItemText ? "Nothing in the SOW covers this" : r.sowItemText;
+    r.kind === "noise" ? "" : r.sowItem === "none" || !r.sowItemText ? "No matching SOW item identified" : r.sowItemText;
   return `
     <div class="card">
       <div class="row"><span class="k">Check</span><span>${verdict}</span></div>

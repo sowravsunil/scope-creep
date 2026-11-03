@@ -27,8 +27,7 @@ Nothing here is used to tune anything. Label before looking at any model answers
 - **size** (change requests only, optional): `under_1`, `1_4`, `4_16`, `16_40`, or `over_40`
 - **clarity:** `clear` or `ambiguous` (if ambiguous, one line in `note` on why you chose that label)
 
-The quickest way, including from a phone: reply in chat with one line per request, like
-`h01 in_scope item_4 clear` or `h10 change_request item_2 4_16 ambiguous: a fourth job type, even if small`,
-and transfer them into the file.
+Shorthand works for a first pass, one line per request, e.g. `h01 in_scope item_4 clear` or
+`h10 change_request item_2 4_16 ambiguous: a fourth job type, even if small`, then copied into the file.
 
 Then: `node eval/run-eval.js --set holdout` (about $0.001), with the threshold frozen at 0.6.

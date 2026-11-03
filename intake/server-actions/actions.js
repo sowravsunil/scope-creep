@@ -1,6 +1,7 @@
 // Request intake: turns a pasted conversation into request tasks in the project's "Customer requests" phase.
 // The Change requests app then checks each one against the SOW when its inbox is opened.
 const { rocketlane } = require("../../app/server-actions/rocketlane");
+const { requireOwner } = require("../../app/server-actions/access");
 const { extractAsks, fallback, quoteIsReal } = require("../../core/extract");
 
 const unpack = (args) => ({ payload: (args && args.payload) || {}, user: (args && args.context && args.context.user) || null });
@@ -39,9 +40,9 @@ const findExisting = async (rl, projectId, asks) => {
 
 module.exports = {
   // Who can be "asked by": the customers on this project, champion first.
-  context: safely(async (r, { payload }) => {
+  context: safely(async (r, { payload, user }) => {
     const rl = rlFor(r);
-    const p = await rl.project(payload.projectId);
+    const p = await requireOwner(rl, payload.projectId, user);
     await requestsPhase(r, rl, payload.projectId);
     const team = p.teamMembers || {};
     const champ = team.customerChampion && team.customerChampion.userId;
@@ -52,7 +53,8 @@ module.exports = {
   }),
 
   // Draft one request per ask. The PM reviews before anything is created.
-  draft: safely(async (r, { payload }) => {
+  draft: safely(async (r, { payload, user }) => {
+    await requireOwner(rlFor(r), payload.projectId, user);
     const text = String(payload.text || "").trim();
     if (text.length < 5) throw new Error("Paste the message or your note first.");
     try {
@@ -74,6 +76,7 @@ module.exports = {
   // what the Change requests app checks); the full original message goes in the private note, for the team only.
   log: safely(async (r, { payload, user }) => {
     const rl = rlFor(r);
+    await requireOwner(rl, payload.projectId, user);
     const asks = (payload.asks || []).filter((a) => a && String(a.title || "").trim());
     if (!asks.length) throw new Error("Nothing to log.");
     const phase = await requestsPhase(r, rl, payload.projectId);

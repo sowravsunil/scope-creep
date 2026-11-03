@@ -36,16 +36,16 @@ const main = async () => {
   const state = await call(client, "inbox", { projectId });
   const ag = state.agreement;
   $("sub").textContent =
-    `Requests in "${state.phase}", checked against "${state.sowTaskName}". Below ${Math.round(state.minConfidence * 100)}% confidence, the PM decides.` +
-    (ag.checked ? ` PM agreed with the check on ${ag.agreed} of ${ag.checked}.` : "");
+    `Requests in "${state.phase}", checked against "${state.sowTaskName}". Below ${Math.round(state.minConfidence * 100)}% confidence, closer review is flagged. The PM decides on every request.` +
+    (ag.checked ? ` ${ag.checked - ag.agreed} of ${ag.checked} stored classifications have a different PM override.` : "");
   // What's charged for vs given away on this project.
   const { billed, absorbed, budgetHours } = state.ledger;
   if (billed.count || absorbed.count || state.sizeRule) {
     const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
-    const share = (h) => (budgetHours ? ` (${((100 * h) / budgetHours).toFixed(1)}% of the ${budgetHours}h budget)` : "");
+    const share = (h) => (budgetHours > 0 ? ` (${((100 * h) / budgetHours).toFixed(1)}% of the ${budgetHours}h current budget)` : "");
     $("ledger").textContent =
-      `Charged: ${billed.hours}h in ${plural(billed.count, "change order")}${share(billed.hours)} · ` +
-      `Given at no charge: ${absorbed.hours}h in ${plural(absorbed.count, "request")}${share(absorbed.hours)}` +
+      `Agreed change-order hours: ${billed.hours}h in ${plural(billed.count, "change order")}${share(billed.hours)} · ` +
+      `Approved no-charge hours: ${absorbed.hours}h in ${plural(absorbed.count, "request")}${share(absorbed.hours)}` +
       (state.sizeRule ? ` · Line: under ${state.sizeRule}h is no charge by default` : "");
   }
   render(state);

@@ -4,7 +4,12 @@
   "description": "Change request checker for Rocketlane: SOW check with Jev, two-step approval, change orders.",
   "scripts": {
     "eval": "node eval/run-eval.js",
-    "build:app": "cd app && rli build"
+    "build:app": "cd app && rli build",
+    "build:intake": "cd intake && rli build",
+    "build": "npm run build:app && npm run build:intake",
+    "test": "node --test tests/*.test.js",
+    "eval:check": "node eval/run-eval.js --dry-run",
+    "eval:saved": "node eval/run-eval.js --from eval/results/run-2026-11-03T05-05-15-412Z-sowlive.json"
   },
   "devDependencies": {
     "@rocketlane/rli": "1.7.0-beta.29"

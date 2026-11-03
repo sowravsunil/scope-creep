@@ -10,3 +10,13 @@ intake/dist/
 .rli/kv.json
 seed.json
 fields.json
+
+# Local platform state and private application preparation
+**/.rli/
+notes/
+resumes/
+.claude/
+app-spike/
+
+# Keep presentation scripts out of the public repository
+docs/DEMO.md

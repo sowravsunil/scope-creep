@@ -8,7 +8,7 @@ const serverActions = [
   { name: "detail", description: "One request's result and history", run: actions.detail },
   { name: "decide", description: "Override, PM decision, customer sign-off, or withdraw", run: actions.decide },
   { name: "portal", description: "Change requests waiting for the customer", run: actions.portal },
-  { name: "auditExport", description: "CSV of every decision and every event in a project", run: actions.auditExport },
+  { name: "auditExport", description: "CSV of current decisions and retained history in a project", run: actions.auditExport },
   { name: "selfTest", description: "Check storage and settings inside Rocketlane", run: actions.selfTest },
 ];
 
@@ -80,7 +80,7 @@ module.exports = {
       secure: false, hidden: false, rerenderAllFields: false, defaultValue: "SOW scope",
     },
     {
-      name: "minConfidence", label: "Act on its own at or above this confidence (%)", type: "NUMBER", required: false,
+      name: "minConfidence", label: "Flag for closer review below this confidence (%)", type: "NUMBER", required: false,
       secure: false, hidden: false, rerenderAllFields: false, defaultValue: 60, metaData: { range: { min: 0, max: 100 } },
     },
   ],

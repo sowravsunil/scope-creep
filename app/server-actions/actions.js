@@ -3,6 +3,7 @@ const { rocketlane } = require("./rocketlane");
 const { projectSetup, classifyTask, checkHash, settings } = require("./classify");
 const approvals = require("./approvals");
 const store = require("./store");
+const { requireOwner } = require("./access");
 
 // Production passes { action, context, payload }; the local dev server passes { payload, context }.
 const unpack = (args) => ({ payload: (args && args.payload) || {}, user: (args && args.context && args.context.user) || null });
@@ -56,8 +57,9 @@ const askedText = (task, setup) => {
 };
 
 // A task is a request if it sits in the requests phase, or it's an agreed change that moved on.
-const loadRequest = async (r, rl, taskId) => {
+const loadRequest = async (r, rl, taskId, ownerUser) => {
   const task = await rl.task(taskId);
+  if (ownerUser !== undefined) await requireOwner(rl, task.project.projectId, ownerUser);
   const setup = await projectSetup(r, rl, task.project.projectId);
   const record = await store.get(r, `req:${taskId}`);
   const inRequests = task.phase && task.phase.phaseId === setup.phaseId;
@@ -65,9 +67,10 @@ const loadRequest = async (r, rl, taskId) => {
 };
 
 module.exports = {
-  // Project tab: the list of requests, stored results, approval status, and how often the PM agreed with the model.
-  inbox: safely(async (r, { payload }) => {
+  // Project tab: the list of requests, stored results, approval status, and recorded PM overrides.
+  inbox: safely(async (r, { payload, user }) => {
     const rl = rlFor(r);
+    await requireOwner(rl, payload.projectId, user);
     const setup = await projectSetup(r, rl, payload.projectId);
     const requests = [];
     for (const { task, record } of await projectRequests(r, rl, setup, payload.projectId)) {
@@ -94,9 +97,10 @@ module.exports = {
   }),
 
   // Audit report: one row per request (what the model said, what was decided, by whom, against which line) and one
-  // row per event. Respondents said they'd trust a tool like this only with "clear audit reports".
-  auditExport: safely(async (r, { payload }) => {
+  // row per retained event. Respondents said they'd trust a tool like this only with "clear audit reports".
+  auditExport: safely(async (r, { payload, user }) => {
     const rl = rlFor(r);
+    await requireOwner(rl, payload.projectId, user);
     const setup = await projectSetup(r, rl, payload.projectId);
     const csv = (rows) =>
       rows.map((row) => row.map((v) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v))).join(",")).join("\n");
@@ -125,7 +129,7 @@ module.exports = {
   // Checks one request (or returns the stored result if nothing changed). Agreed changes aren't re-checked.
   classify: safely(async (r, { payload, user }) => {
     const rl = rlFor(r);
-    const { task, setup, record, inRequests } = await loadRequest(r, rl, payload.taskId);
+    const { task, setup, record, inRequests } = await loadRequest(r, rl, payload.taskId, user);
     if (!inRequests || isLocked(record)) return { notARequest: !inRequests && !isAgreed(record), record: withStatus(record, task) };
     const named = await store.withName(r, rl, user);
     return { record: withStatus(await classifyTask(r, rl, setup, task, { force: !!payload.force, user: named }), task) };
@@ -134,7 +138,7 @@ module.exports = {
   // Task tab: this request's result, approval state, history, and what the current user is allowed to do.
   detail: safely(async (r, { payload, user }) => {
     const rl = rlFor(r);
-    const { task, setup, record, isRequest } = await loadRequest(r, rl, payload.taskId);
+    const { task, setup, record, isRequest } = await loadRequest(r, rl, payload.taskId, user);
     const phaseName = (task.phase && task.phase.phaseName) || "";
     if (!isRequest) return { isRequest, phaseName };
     const who = await approvals.roles(rl, task.project.projectId, user);
@@ -165,7 +169,8 @@ module.exports = {
       const who = await approvals.roles(rl, task.project.projectId, user);
       await step(r, rl, setup, task, record, payload, await store.withName(r, rl, user), who);
       await store.set(r, `req:${task.taskId}`, record);
-      return { record: withStatus(record, await rl.task(task.taskId)) };
+      // Customer actions must not return the internal model record or PM-only history.
+      return who.isOwner ? { record: withStatus(record, await rl.task(task.taskId)) } : { updated: true };
     });
   }),
 
@@ -222,7 +227,8 @@ module.exports = {
   }),
 
   // Checks the parts the build depends on, inside Rocketlane, without touching real data.
-  selfTest: safely(async (r, { user }) => {
+  selfTest: safely(async (r, { payload, user }) => {
+    await requireOwner(rlFor(r), payload.projectId, user);
     const out = { user: user ? user.emailId : "unknown" };
     const p = r.installationParams || {};
     out.settings = { rlApiKey: !!p.rlApiKey, openrouterKey: !!p.openrouterKey, ...settings(r) };

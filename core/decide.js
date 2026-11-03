@@ -16,7 +16,7 @@ const KINDS = {
   noise: "Asks for nothing: thanks, greetings, introductions, out-of-office notes or FYIs.",
 };
 
-// Picked from the eval (eval/RESULTS.md): at 0.6 both runs auto-handled 44/48 with no mistakes; at 0.5 one
+// Picked from the eval (eval/RESULTS.md): at 0.6 44/48 met the threshold with no type errors in both original runs; at 0.5 one
 // false change request slipped through when its confidence moved from 0.49 to 0.52 between runs.
 // The review signal didn't separate clear from ambiguous requests well, so it isn't part of the gate (1.01 = off).
 const THRESHOLDS = { minConfidence: 0.6, maxReview: 1.01 };
@@ -95,7 +95,7 @@ const callJev = async (apiKey, body) => {
   return json;
 };
 
-// Turns raw answers into a decision. Acts only when confident and no review is needed.
+// Interprets model output. "auto" means no extra review flag; the PM still decides on every request.
 const interpret = (answers, thresholds) => {
   const { kind, sow_item: sowItem, size, needs_review: review } = answers;
   const sizeIndex = Math.max(0, Math.min(SIZE_KEYS.length - 1, Math.round(size.score)));

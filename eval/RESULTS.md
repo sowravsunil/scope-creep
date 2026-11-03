@@ -1,13 +1,15 @@
 # Eval results: sorting customer requests with Jev
 
 Run on 2026-10-31 with `typesafe/jev-1.14`, two full runs over the same 48 requests.
-Raw answers: `results/run-2026-10-31T07-31-56-778Z.json` and `results/run-2026-10-31T07-32-23-889Z.json`.
-Re-score either for free with `node eval/run-eval.js --from <file>`. (These runs used four size ranges; re-scored
-against today's five-range labels, their size numbers drop. Type and SOW numbers are unchanged.)
+Raw answers: [run 1](results/run-2026-10-31T07-31-56-778Z.json) and [run 2](results/run-2026-10-31T07-32-23-889Z.json).
+From the repository root, re-score either without API calls using `node eval/run-eval.js --from eval/results/<file>`.
+The report preserves each saved run's labels and original size ranges. October runs used four ranges; the latest
+November run used five. New runs save the range keys explicitly.
 
 **Labels:** drafted with AI help, reviewed by me on 2026-10-31. I confirmed the two the model disagreed with:
 r18 (recording the training) is in scope, r41 (legal hold on SLAs) is a blocker. The other 9 ambiguous labels kept
-as drafted. If I change a label later, re-score the saved runs; no new calls needed.
+as drafted. Saved runs embed their labels. Changing the development labels does not change a historical report;
+any relabelled analysis should be saved separately with the reasons for the changes.
 
 ## The set
 
@@ -35,10 +37,11 @@ The two mistakes, both on requests I'd marked ambiguous:
 
 ## Picking the threshold
 
-The app only acts on its own when Jev's confidence in the request type is at or above a cut-off. Below it, the
-request goes to "Needs review" for the PM.
+At or above the confidence threshold, the app shows the predicted type without an additional review flag. Below
+it, the request is marked "Needs review". The PM makes the business decision in both cases; this does not measure
+automated approval. Scores have not been calibrated as probabilities of correctness.
 
-| Cut-off | Handled automatically | Mistakes among those | False change requests |
+| Cut-off | Above threshold | Mistakes among those | False change requests |
 |---|---|---|---|
 | 0.5 | 92% / 96% | 0 / 1 | 0 / 1 |
 | **0.6** | **92% / 92%** | **0 / 0** | **0 / 0** |
@@ -46,9 +49,9 @@ request goes to "Needs review" for the PM.
 | 0.8 | 85% / 85% | 0 / 0 | 0 / 0 |
 
 I picked **0.6**. At 0.5 the r18 false flag got through in run 2 when its confidence went from 0.49 to 0.52, which
-is within the run-to-run wobble. 0.6 leaves room for that wobble and still lets the app handle 44 of 48 requests.
-A false change request is the worse mistake here: it means telling a customer to pay for work they already paid
-for. So a slightly higher cut-off that sends a few more requests to the PM is the right trade.
+is within the run-to-run wobble. 0.6 leaves room for that wobble and still leaves 44 of 48 requests above the threshold.
+A false change request is the worse mistake here: it can lead to asking a customer to pay for work the SOW already covers.
+The PM check is intended to catch that before anything reaches the customer. So a slightly higher cut-off that sends a few more requests to the PM is the right trade.
 
 The four requests sent to review at 0.6: both mistakes above, plus two correct change requests with lower
 confidence (r20, older Zendesk attachments; r26, a fourth agent group).
@@ -56,8 +59,8 @@ confidence (r20, older Zendesk attachments; r26, a fourth agent group).
 ## What didn't work
 
 - **The "needs review" signal.** It averaged 0.59 on clear requests and 0.71 on ambiguous ones, and the ranges
-  overlap a lot. Gating on it would send most clear requests to a person for no gain, so it's shown to the PM
-  but not used to decide.
+  overlap a lot. Gating on it would send most clear requests to a person for no gain, so it is retained in the model record
+  but not used for the review threshold.
 - **Exact size.** The bucket was right only 59-65% of the time, but never off by more than one. The app shows it
   as a rough range and the PM sets the real hours.
 - **SOW item on noise and blockers.** The three misses were requests that mention forms ("the forms look good
@@ -74,18 +77,18 @@ live task through the app's parser (`run-...-sowlive.json`, `node eval/run-eval.
 |---|---|---|
 | Request type correct | 46/48 | 46/48, same two mistakes |
 | Change requests caught | 17/17 | 17/17 |
-| Handled automatically at 0.6, mistakes | 44/48, 0 | 44/48, 0 |
+| Above threshold at 0.6, mistakes | 44/48, 0 | 44/48, 0 |
 | SOW item correct | 45/48 | 43/48 |
 
-So the eval measures what the app runs. One thing to watch: r18's confidence was 0.49 and 0.52 in runs 1-2 and
-0.55 in run 3. Still under 0.6, but close. The holdout set (below) is the real test of the threshold.
+The same classification code runs in the app and evaluator; this check compares the two SOW inputs. One thing to watch: r18's confidence was 0.49 and 0.52 in runs 1-2 and
+0.55 in run 3. Still under 0.6, but close. The holdout set (below) is the next independent check of the threshold.
 
 ## Five size ranges (v1.4, Nov 3)
 
 Partners put the free-vs-charged line at 30 minutes to 2 hours, so "under 4 hours" was too coarse. The size question
 now has five ranges: under 1h, 1-4h, 4-16h, 16-40h, over 40h. Two of my size labels moved from "under 4" to "1-4"
 (r27, a third inbox; r28, one more training session). Re-run with the live SOW (`run-2026-11-03...-sowlive.json`):
-type still 46/48 with the same two mistakes, all 17 change requests caught, 45/48 handled at 0.6 with no mistakes,
+type still 46/48 with the same two mistakes, all 17 change requests caught, 45/48 above the 0.6 threshold with no type errors among those 45,
 size 59% exact and 100% within one range, SOW item 44/48. r18 at 0.53, still under the bar.
 
 ## Small asks are the grey zone
@@ -101,4 +104,15 @@ a test set of its own.
 - 48 requests, all written for this test, by the same process that wrote the questions. Real customer messages are
   messier, so treat these numbers as "it works on this kind of request", not as production accuracy.
 - One project and one SOW. A vaguer SOW would mean lower confidence and more reviews.
-- Two runs. The pattern was stable, but more runs would tighten the wobble estimate.
+- Two original full runs, a live-SOW check, and a later five-range run. Repeating the same synthetic examples
+  does not establish performance on unseen projects or customer messages.
+
+## Reproduce the latest result
+
+Run `npm run eval:saved` from the repository root. This uses
+[the 3 November raw run](results/run-2026-11-03T05-05-15-412Z-sowlive.json), with no provider calls or keys.
+The earliest five-item file is a smoke run, not a full evaluation.
+
+The [logistics holdout](holdout/LABELLING.md) is still unlabelled. Freeze human labels before viewing predictions.
+If prompts or thresholds are tuned on it, use a fresh independent set for the next validation. Report counts and
+review coverage, including errors, rather than treating a 15-example result as proof of production readiness.

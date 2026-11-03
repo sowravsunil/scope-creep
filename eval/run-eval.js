@@ -93,7 +93,13 @@ const pad = (s, n) => String(s).padEnd(n);
 const report = (run) => {
   const ok = run.items.filter((r) => r.answers);
   const failed = run.items.filter((r) => r.error);
-  const scored = ok.map((r) => ({ ...r, d: interpret(r.answers, { minConfidence: 0, maxReview: 1.01 }) }));
+  // Archived October runs used four ranges; numeric scores must retain that original meaning.
+  // New runs save sizeKeys explicitly. The date fallback is only for the checked-in historical runs.
+  const sizeKeys = run.sizeKeys || (run.at < "2026-11-03" ? ["under_4", "4_16", "16_40", "over_40"] : SIZE_KEYS);
+  const scored = ok.map((r) => ({ ...r, d: {
+    ...interpret(r.answers, { minConfidence: 0, maxReview: 1.01 }),
+    size: sizeKeys[Math.max(0, Math.min(sizeKeys.length - 1, Math.round(r.answers.size.score)))],
+  } }));
 
   console.log(`\nModel: ${run.model}   Run: ${run.at}   Answered: ${ok.length}/${run.items.length}`);
   for (const f of failed) console.log(`  FAILED ${f.id}: ${f.error}`);
@@ -120,8 +126,8 @@ const report = (run) => {
   const fp = scored.filter((r) => !isCR(r) && saidCR(r));
   const fn = scored.filter((r) => isCR(r) && !saidCR(r));
   console.log(`\n2. Change requests`);
-  console.log(`   Caught (recall):     ${tp}/${tp + fn.length} (${pct(tp, tp + fn.length)})   a miss = unbilled work`);
-  console.log(`   Right when flagged (precision): ${tp}/${tp + fp.length} (${pct(tp, tp + fp.length)})   a false flag = billing a customer for work they paid for`);
+  console.log(`   Caught (recall):     ${tp}/${tp + fn.length} (${pct(tp, tp + fn.length)})   a miss can hide extra work`);
+  console.log(`   Right when flagged (precision): ${tp}/${tp + fp.length} (${pct(tp, tp + fp.length)})   a false flag can lead to asking for payment for covered work`);
   for (const r of fn) console.log(`   MISSED ${r.id} (Jev: ${r.d.kind}, conf ${r.d.kindConfidence.toFixed(2)}): ${r.text.slice(0, 80)}`);
   for (const r of fp) console.log(`   FALSE FLAG ${r.id} (label: ${r.kind}, conf ${r.d.kindConfidence.toFixed(2)}): ${r.text.slice(0, 80)}`);
 
@@ -129,13 +135,13 @@ const report = (run) => {
   const sowRight = scored.filter((r) => r.d.sowItem === r.sowItem).length;
   const sized = scored.filter((r) => isCR(r) && r.size);
   const exact = sized.filter((r) => r.d.size === r.size).length;
-  const near = sized.filter((r) => Math.abs(SIZE_KEYS.indexOf(r.d.size) - SIZE_KEYS.indexOf(r.size)) <= 1).length;
+  const near = sized.filter((r) => Math.abs(sizeKeys.indexOf(r.d.size) - sizeKeys.indexOf(r.size)) <= 1).length;
   console.log(`\n3. SOW item: ${sowRight}/${scored.length} (${pct(sowRight, scored.length)})` +
     `   Size on change requests: exact ${pct(exact, sized.length)}, within one bucket ${pct(near, sized.length)}`);
 
-  // 4. The gate: how much can run without a person, and how often that's wrong.
-  console.log(`\n4. Gate: act only if type confidence >= C and review probability < R`);
-  console.log(`   ${pad("C", 6)}${pad("R", 6)}${pad("auto", 12)}${pad("auto correct", 16)}${pad("auto false CR", 14)}`);
+  // 4. Classification coverage at each threshold. PM approval is always required.
+  console.log(`\n4. Classification coverage: type confidence >= C and review signal < R (PM still decides)`);
+  console.log(`   ${pad("C", 6)}${pad("R", 6)}${pad("coverage", 12)}${pad("correct", 16)}${pad("false CR", 14)}`);
   for (const c of [0, 0.5, 0.6, 0.7, 0.8, 0.9]) {
     for (const rv of [1.01, 0.7, 0.5, 0.3]) {
       const auto = ok.map((r) => ({ r, d: interpret(r.answers, { minConfidence: c, maxReview: rv }) }))
@@ -203,7 +209,7 @@ const main = async () => {
   if (option("--limit")) items = items.slice(0, Number(option("--limit")));
 
   const tag = flag("--sow-live") ? "-sowlive" : option("--set") ? `-${option("--set")}` : "";
-  const run = { model: MODEL, at: new Date().toISOString(), sowSource, items: await runAll(items, apiKey, 4) };
+  const run = { model: MODEL, at: new Date().toISOString(), sowSource, sizeKeys: SIZE_KEYS, items: await runAll(items, apiKey, 4) };
   fs.mkdirSync(RESULTS_DIR, { recursive: true });
   const file = path.join(RESULTS_DIR, `run-${run.at.replace(/[:.]/g, "-")}${tag}.json`);
   fs.writeFileSync(file, JSON.stringify(run, null, 2));
