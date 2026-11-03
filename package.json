@@ -1,0 +1,12 @@
+{
+  "name": "rocketlane-change-requests",
+  "private": true,
+  "description": "Change request checker for Rocketlane: SOW check with Jev, two-step approval, change orders.",
+  "scripts": {
+    "eval": "node eval/run-eval.js",
+    "build:app": "cd app && rli build"
+  },
+  "devDependencies": {
+    "@rocketlane/rli": "1.7.0-beta.29"
+  }
+}

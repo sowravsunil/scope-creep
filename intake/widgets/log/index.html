@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log a request</title>
+  <link rel="stylesheet" href="../shared/style.css">
+  <style>
+    textarea.paste { width: 100%; min-height: 120px; font: inherit; padding: 8px; border: 1px solid #c3cad3; border-radius: 6px; }
+    .draft { border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+    .draft input.title { width: 100%; font-weight: 600; }
+    .draft textarea { width: 100%; min-height: 44px; font: inherit; padding: 6px 8px; border: 1px solid #c3cad3; border-radius: 6px; margin-top: 6px; }
+    .quote { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h2>Log a request</h2>
+  <div class="sub">Paste what the customer said in a call, chat, email or signal. Each separate ask becomes a request in
+    "Customer requests", in their words, and gets checked against the SOW in the Change requests tab.</div>
+  <div id="main">Loading...</div>
+</body>
+<script src="<%= rocketlaneSdk %>" id="rocketlane-sdk"></script>
+<script src="../shared/common.js"></script>
+<script src="./log.js"></script>
+</html>

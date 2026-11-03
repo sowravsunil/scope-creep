@@ -1,0 +1,331 @@
+{
+  "model": "typesafe/jev-1.14",
+  "at": "2026-10-31T07:31:50.758Z",
+  "items": [
+    {
+      "id": "r01",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "none",
+      "size": "16_40",
+      "clarity": "clear",
+      "text": "Hi team, while you're in there can you also set up the returns portal for our UK and DE stores? Our ops lead assumed it was part of this. Ideally before go-live.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 1,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 1
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 2.78,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0,
+            "1": 0.01,
+            "2": 0.19,
+            "3": 0.8
+          },
+          "confidence": 0.79
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.51
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1154,
+        "output_tokens": 173,
+        "cost": 0.000048468
+      }
+    },
+    {
+      "id": "r02",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "shopify_lookup",
+      "size": null,
+      "clarity": "clear",
+      "text": "Quick question from our support lead: once Shopify is connected, where exactly will agents see a customer's past orders? Want to put it in the training deck.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 1,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "shopify_lookup",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 1,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.38,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.73,
+            "1": 0.19,
+            "2": 0.05,
+            "3": 0.03
+          },
+          "confidence": 0.62
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.19
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1148,
+        "output_tokens": 176,
+        "cost": 0.000048216
+      }
+    },
+    {
+      "id": "r03",
+      "raisedBy": "customer",
+      "kind": "blocker",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "None of us can log in to the sandbox since this morning, it says the SSO certificate is invalid. Our admins are blocked on reviewing the ticket forms.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "blocker",
+          "probabilities": {
+            "in_scope": 0.01,
+            "change_request": 0,
+            "blocker": 0.99,
+            "noise": 0
+          },
+          "confidence": 0.99
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "ticket_forms",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0.48,
+            "sla_tiers": 0,
+            "agent_groups": 0.24,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0.01,
+            "none": 0.27
+          },
+          "confidence": 0.42
+        },
+        "size": {
+          "type": "score",
+          "score": 1.02,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.18,
+            "1": 0.65,
+            "2": 0.15,
+            "3": 0.02
+          },
+          "confidence": 0.63
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.8
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1148,
+        "output_tokens": 174,
+        "cost": 0.000048216
+      }
+    },
+    {
+      "id": "r04",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "sla_tiers",
+      "size": "4_16",
+      "clarity": "clear",
+      "text": "We forgot about wholesale accounts in the workshop. Can we add three more SLA tiers for them (Gold, Silver, Bronze)? Same setup as the others.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.02,
+            "change_request": 0.98,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.97
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "sla_tiers",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0.99,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.01
+          },
+          "confidence": 0.99
+        },
+        "size": {
+          "type": "score",
+          "score": 1.48,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.54,
+            "2": 0.41,
+            "3": 0.04
+          },
+          "confidence": 0.5
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.66
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1147,
+        "output_tokens": 175,
+        "cost": 0.000048174
+      }
+    },
+    {
+      "id": "r05",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "Thanks for running the workshop on Wednesday, the team found it really useful.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 1
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0.17,
+            "hypercare": 0,
+            "none": 0.83
+          },
+          "confidence": 0.81
+        },
+        "size": {
+          "type": "score",
+          "score": 1.4,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.42,
+            "1": 0.12,
+            "2": 0.09,
+            "3": 0.37
+          },
+          "confidence": 0
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.67
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1131,
+        "output_tokens": 172,
+        "cost": 0.000047502
+      }
+    }
+  ]
+}

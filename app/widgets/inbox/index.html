@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change requests</title>
+  <link rel="stylesheet" href="../shared/style.css">
+</head>
+<body>
+  <h2>Change requests</h2>
+  <div class="sub" id="sub">Loading...</div>
+  <div class="ledger" id="ledger"></div>
+  <div class="summary" id="summary"></div>
+  <div id="list"></div>
+  <div class="audit">
+    <span class="muted">Audit report:</span>
+    <button id="audit-decisions">Decisions (CSV)</button>
+    <button id="audit-events">Full history (CSV)</button>
+    <span class="muted" id="audit-status"></span>
+    <textarea id="audit-copy" hidden readonly></textarea>
+  </div>
+</body>
+<script src="<%= rocketlaneSdk %>" id="rocketlane-sdk"></script>
+<script src="../shared/common.js"></script>
+<script src="./inbox.js"></script>
+</html>

@@ -1,0 +1,12 @@
+.env
+*.log
+__pycache__/
+node_modules/
+.DS_Store
+app.zip
+rli-dist/
+app/dist/
+intake/dist/
+.rli/kv.json
+seed.json
+fields.json

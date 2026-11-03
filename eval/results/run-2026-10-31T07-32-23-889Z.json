@@ -1,0 +1,3137 @@
+{
+  "model": "typesafe/jev-1.14",
+  "at": "2026-10-31T07:32:23.889Z",
+  "items": [
+    {
+      "id": "r01",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "none",
+      "size": "16_40",
+      "clarity": "clear",
+      "text": "Hi team, while you're in there can you also set up the returns portal for our UK and DE stores? Our ops lead assumed it was part of this. Ideally before go-live.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 1,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 1
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 2.79,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0,
+            "1": 0.01,
+            "2": 0.19,
+            "3": 0.8
+          },
+          "confidence": 0.79
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.46
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1154,
+        "output_tokens": 173,
+        "cost": 0.000048468
+      }
+    },
+    {
+      "id": "r02",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "shopify_lookup",
+      "size": null,
+      "clarity": "clear",
+      "text": "Quick question from our support lead: once Shopify is connected, where exactly will agents see a customer's past orders? Want to put it in the training deck.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 1,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "shopify_lookup",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 1,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.41,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.72,
+            "1": 0.19,
+            "2": 0.05,
+            "3": 0.04
+          },
+          "confidence": 0.59
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.18
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1148,
+        "output_tokens": 176,
+        "cost": 0.000048216
+      }
+    },
+    {
+      "id": "r03",
+      "raisedBy": "customer",
+      "kind": "blocker",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "None of us can log in to the sandbox since this morning, it says the SSO certificate is invalid. Our admins are blocked on reviewing the ticket forms.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "blocker",
+          "probabilities": {
+            "in_scope": 0.01,
+            "change_request": 0,
+            "blocker": 0.99,
+            "noise": 0
+          },
+          "confidence": 0.99
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "ticket_forms",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0.53,
+            "sla_tiers": 0,
+            "agent_groups": 0.24,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0.01,
+            "none": 0.22
+          },
+          "confidence": 0.47
+        },
+        "size": {
+          "type": "score",
+          "score": 1.03,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.19,
+            "1": 0.64,
+            "2": 0.13,
+            "3": 0.04
+          },
+          "confidence": 0.6
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.81
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1148,
+        "output_tokens": 174,
+        "cost": 0.000048216
+      }
+    },
+    {
+      "id": "r04",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "sla_tiers",
+      "size": "4_16",
+      "clarity": "clear",
+      "text": "We forgot about wholesale accounts in the workshop. Can we add three more SLA tiers for them (Gold, Silver, Bronze)? Same setup as the others.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.02,
+            "change_request": 0.98,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.97
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "sla_tiers",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0.99,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.01
+          },
+          "confidence": 0.99
+        },
+        "size": {
+          "type": "score",
+          "score": 1.56,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.48,
+            "2": 0.46,
+            "3": 0.05
+          },
+          "confidence": 0.43
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.72
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1147,
+        "output_tokens": 175,
+        "cost": 0.000048174
+      }
+    },
+    {
+      "id": "r05",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "Thanks for running the workshop on Wednesday, the team found it really useful.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 1
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0.15,
+            "hypercare": 0,
+            "none": 0.85
+          },
+          "confidence": 0.83
+        },
+        "size": {
+          "type": "score",
+          "score": 1.23,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.48,
+            "1": 0.12,
+            "2": 0.08,
+            "3": 0.32
+          },
+          "confidence": 0
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.64
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1131,
+        "output_tokens": 172,
+        "cost": 0.000047502
+      }
+    },
+    {
+      "id": "r06",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "zendesk_migration",
+      "size": "16_40",
+      "clarity": "ambiguous",
+      "note": "Phrased as a small add-on ('quickly also', 'same process'), but it's a second source system and 20k more tickets. Classic scope creep.",
+      "text": "Could you quickly also pull in the Freshdesk tickets from the company we acquired in 2019? It's a smaller account, maybe 20k tickets. Should be the same process as Zendesk right?",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.02,
+            "change_request": 0.98,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.97
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "zendesk_migration",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0.67,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.33
+          },
+          "confidence": 0.63
+        },
+        "size": {
+          "type": "score",
+          "score": 2.18,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0,
+            "1": 0.11,
+            "2": 0.6,
+            "3": 0.29
+          },
+          "confidence": 0.6
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.85
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1162,
+        "output_tokens": 177,
+        "cost": 0.000048804
+      }
+    },
+    {
+      "id": "r07",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "training",
+      "size": null,
+      "clarity": "clear",
+      "text": "Black Friday week is going to be hard for us. Can agent training move to the week of December 1?",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 1,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "training",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 1,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.82,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.35,
+            "1": 0.51,
+            "2": 0.12,
+            "3": 0.02
+          },
+          "confidence": 0.49
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.65
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1139,
+        "output_tokens": 173,
+        "cost": 0.000047838
+      }
+    },
+    {
+      "id": "r08",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "shopify_lookup",
+      "size": "4_16",
+      "clarity": "ambiguous",
+      "note": "Rides on the in-scope Shopify integration, but loyalty data is explicitly out of scope.",
+      "text": "Can the Shopify sidebar also show loyalty points? We use a loyalty app that writes them to the customer record.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.04,
+            "change_request": 0.96,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.95
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "shopify_lookup",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0.98,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.02
+          },
+          "confidence": 0.98
+        },
+        "size": {
+          "type": "score",
+          "score": 1.92,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.23,
+            "2": 0.6,
+            "3": 0.16
+          },
+          "confidence": 0.59
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.5
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1138,
+        "output_tokens": 176,
+        "cost": 0.000047796
+      }
+    },
+    {
+      "id": "r09",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "sla_tiers",
+      "size": null,
+      "clarity": "ambiguous",
+      "note": "Translating tier names for the DE team is a small adjustment inside an in-scope item, not new work.",
+      "text": "Can the SLA policy names show in German for the DE team? Same four tiers, just translated.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.91,
+            "change_request": 0.09,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.88
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "sla_tiers",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 1,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.67,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.39,
+            "1": 0.55,
+            "2": 0.06,
+            "3": 0
+          },
+          "confidence": 0.55
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.68
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1136,
+        "output_tokens": 175,
+        "cost": 0.000047712
+      }
+    },
+    {
+      "id": "r10",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "email_channels",
+      "size": null,
+      "clarity": "clear",
+      "text": "For the orders@ inbox, can replies go out from orders@northwind-retail.example rather than the generic support address?",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.96,
+            "change_request": 0.04,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.95
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "email_channels",
+          "probabilities": {
+            "email_channels": 0.99,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.01
+          },
+          "confidence": 0.99
+        },
+        "size": {
+          "type": "score",
+          "score": 0.66,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.4,
+            "1": 0.55,
+            "2": 0.05,
+            "3": 0
+          },
+          "confidence": 0.55
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.64
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1141,
+        "output_tokens": 174,
+        "cost": 0.000047922
+      }
+    },
+    {
+      "id": "r11",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "ticket_forms",
+      "size": null,
+      "clarity": "clear",
+      "text": "We'd like the UK ticket form to include a 'store number' field so agents know which branch the customer visited.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.91,
+            "change_request": 0.09,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.88
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "ticket_forms",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 1,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.69,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.37,
+            "1": 0.58,
+            "2": 0.05,
+            "3": 0
+          },
+          "confidence": 0.58
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.6
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1140,
+        "output_tokens": 174,
+        "cost": 0.00004788
+      }
+    },
+    {
+      "id": "r12",
+      "raisedBy": "team",
+      "kind": "in_scope",
+      "sowItem": "agent_groups",
+      "size": null,
+      "clarity": "clear",
+      "text": "From today's call: their agent headcount went up to 55 after the hiring round. They asked if the setup still covers everyone.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.86,
+            "change_request": 0.14,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.81
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "agent_groups",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 1,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.63,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.49,
+            "1": 0.41,
+            "2": 0.08,
+            "3": 0.02
+          },
+          "confidence": 0.37
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.4
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1146,
+        "output_tokens": 174,
+        "cost": 0.000048132
+      }
+    },
+    {
+      "id": "r13",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "zendesk_migration",
+      "size": null,
+      "clarity": "clear",
+      "text": "Will the migration keep the original ticket creation dates? Our reporting depends on them.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 1,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "zendesk_migration",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 1,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 1.34,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.27,
+            "1": 0.31,
+            "2": 0.24,
+            "3": 0.18
+          },
+          "confidence": 0.13
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.72
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1132,
+        "output_tokens": 177,
+        "cost": 0.000047544
+      }
+    },
+    {
+      "id": "r14",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "training",
+      "size": null,
+      "clarity": "clear",
+      "text": "Who from our side needs to attend the admin training? I want to block calendars this week.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 1,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "training",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 1,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.99,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.48,
+            "1": 0.23,
+            "2": 0.11,
+            "3": 0.18
+          },
+          "confidence": 0.01
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.8
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1135,
+        "output_tokens": 173,
+        "cost": 0.00004767
+      }
+    },
+    {
+      "id": "r15",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "hypercare",
+      "size": null,
+      "clarity": "clear",
+      "text": "Can hypercare start the Monday after go-live instead of the same day? Go-live is a Friday.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.98,
+            "change_request": 0.02,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.97
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "hypercare",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 1,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.5,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.69,
+            "1": 0.19,
+            "2": 0.08,
+            "3": 0.04
+          },
+          "confidence": 0.53
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.49
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1138,
+        "output_tokens": 175,
+        "cost": 0.000047796
+      }
+    },
+    {
+      "id": "r16",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "zendesk_migration",
+      "size": null,
+      "clarity": "clear",
+      "text": "Please share the field mapping sheet for the Zendesk import so our ops lead can review it before the test run.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.97,
+            "change_request": 0.02,
+            "blocker": 0.01,
+            "noise": 0
+          },
+          "confidence": 0.96
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "zendesk_migration",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0.01,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0.99,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 0.99
+        },
+        "size": {
+          "type": "score",
+          "score": 1,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.24,
+            "1": 0.55,
+            "2": 0.17,
+            "3": 0.04
+          },
+          "confidence": 0.51
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.71
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1139,
+        "output_tokens": 177,
+        "cost": 0.000047838
+      }
+    },
+    {
+      "id": "r17",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "sla_tiers",
+      "size": null,
+      "clarity": "clear",
+      "text": "Can we rename the 'VIP' SLA tier to 'Premier'? That's what our stores call those customers.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.97,
+            "change_request": 0.03,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.96
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "sla_tiers",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 1,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.55,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.52,
+            "1": 0.42,
+            "2": 0.06,
+            "3": 0
+          },
+          "confidence": 0.46
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.33
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1139,
+        "output_tokens": 175,
+        "cost": 0.000047838
+      }
+    },
+    {
+      "id": "r18",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "training",
+      "size": null,
+      "clarity": "ambiguous",
+      "note": "Recording a session that's already happening costs almost nothing. Treated as in scope; a stricter PM could call it a change.",
+      "text": "Is it possible to record the agent training so people who join later can watch it?",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.36,
+            "change_request": 0.64,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.52
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "training",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 1,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.84,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.27,
+            "1": 0.63,
+            "2": 0.1,
+            "3": 0
+          },
+          "confidence": 0.63
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.79
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1133,
+        "output_tokens": 173,
+        "cost": 0.000047586
+      }
+    },
+    {
+      "id": "r19",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "ticket_forms",
+      "size": null,
+      "clarity": "clear",
+      "text": "The DE ticket form should have its field labels in German please.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.88,
+            "change_request": 0.12,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.84
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "ticket_forms",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 1,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.69,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.37,
+            "1": 0.57,
+            "2": 0.06,
+            "3": 0
+          },
+          "confidence": 0.57
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.74
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1129,
+        "output_tokens": 174,
+        "cost": 0.000047418
+      }
+    },
+    {
+      "id": "r20",
+      "raisedBy": "team",
+      "kind": "change_request",
+      "sowItem": "zendesk_migration",
+      "size": "4_16",
+      "clarity": "ambiguous",
+      "note": "Only attachments, but from tickets older than the 2 years the SOW covers.",
+      "text": "Customer asked on the call whether attachments from Zendesk tickets older than 2 years can come across too. Just the attachments, not the tickets.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.49,
+            "change_request": 0.51,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.35
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "zendesk_migration",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0.99,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.01
+          },
+          "confidence": 0.99
+        },
+        "size": {
+          "type": "score",
+          "score": 1.47,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.09,
+            "1": 0.46,
+            "2": 0.34,
+            "3": 0.11
+          },
+          "confidence": 0.35
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.69
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1145,
+        "output_tokens": 177,
+        "cost": 0.00004809
+      }
+    },
+    {
+      "id": "r21",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "agent_groups",
+      "size": null,
+      "clarity": "clear",
+      "text": "We'd like the three agent groups split by region (US, UK, DE) instead of by function.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.81,
+            "change_request": 0.19,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.75
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "agent_groups",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 1,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 1.33,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.06,
+            "1": 0.57,
+            "2": 0.34,
+            "3": 0.03
+          },
+          "confidence": 0.54
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.76
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1138,
+        "output_tokens": 174,
+        "cost": 0.000047796
+      }
+    },
+    {
+      "id": "r22",
+      "raisedBy": "customer",
+      "kind": "in_scope",
+      "sowItem": "shopify_lookup",
+      "size": null,
+      "clarity": "clear",
+      "text": "Quick check: the Shopify lookup is read only, right? Our finance team asked.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 1,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "shopify_lookup",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 1,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.7,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.64,
+            "1": 0.14,
+            "2": 0.12,
+            "3": 0.1
+          },
+          "confidence": 0.32
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.09
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1133,
+        "output_tokens": 176,
+        "cost": 0.000047586
+      }
+    },
+    {
+      "id": "r23",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "ticket_forms",
+      "size": "4_16",
+      "clarity": "clear",
+      "text": "We're opening a store in France in March. Can you add an FR region form like the other three?",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.09,
+            "change_request": 0.91,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.88
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "ticket_forms",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0.99,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.01
+          },
+          "confidence": 0.99
+        },
+        "size": {
+          "type": "score",
+          "score": 1.31,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.03,
+            "1": 0.65,
+            "2": 0.3,
+            "3": 0.02
+          },
+          "confidence": 0.63
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.76
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1138,
+        "output_tokens": 174,
+        "cost": 0.000047796
+      }
+    },
+    {
+      "id": "r24",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "none",
+      "size": "16_40",
+      "clarity": "clear",
+      "text": "Could you also connect our Instagram DMs as a ticket source? A lot of customers message us there.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 1,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0.06,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.94
+          },
+          "confidence": 0.93
+        },
+        "size": {
+          "type": "score",
+          "score": 2.41,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0,
+            "1": 0.06,
+            "2": 0.46,
+            "3": 0.48
+          },
+          "confidence": 0.42
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.42
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1137,
+        "output_tokens": 173,
+        "cost": 0.000047754
+      }
+    },
+    {
+      "id": "r25",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "shopify_lookup",
+      "size": "16_40",
+      "clarity": "clear",
+      "text": "Can agents issue refunds from the Shopify panel instead of only seeing the orders? It would save a lot of tab switching.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.02,
+            "change_request": 0.98,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.97
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "shopify_lookup",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0.95,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.05
+          },
+          "confidence": 0.94
+        },
+        "size": {
+          "type": "score",
+          "score": 2.49,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0,
+            "1": 0.05,
+            "2": 0.41,
+            "3": 0.54
+          },
+          "confidence": 0.49
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.51
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1140,
+        "output_tokens": 176,
+        "cost": 0.00004788
+      }
+    },
+    {
+      "id": "r26",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "agent_groups",
+      "size": "4_16",
+      "clarity": "clear",
+      "text": "Our call centre team (12 people) should be in the system too, as a fourth group with its own queue.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.37,
+            "change_request": 0.63,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.51
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "agent_groups",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 1,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 1.46,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.54,
+            "2": 0.42,
+            "3": 0.03
+          },
+          "confidence": 0.51
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.66
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1141,
+        "output_tokens": 174,
+        "cost": 0.000047922
+      }
+    },
+    {
+      "id": "r27",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "email_channels",
+      "size": "under_4",
+      "clarity": "clear",
+      "text": "Can you set up a third inbox for wholesale@? Same as the other two.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.06,
+            "change_request": 0.94,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.92
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "email_channels",
+          "probabilities": {
+            "email_channels": 0.98,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.02
+          },
+          "confidence": 0.98
+        },
+        "size": {
+          "type": "score",
+          "score": 0.99,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.14,
+            "1": 0.73,
+            "2": 0.12,
+            "3": 0.01
+          },
+          "confidence": 0.72
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.53
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1133,
+        "output_tokens": 174,
+        "cost": 0.000047586
+      }
+    },
+    {
+      "id": "r28",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "training",
+      "size": "under_4",
+      "clarity": "ambiguous",
+      "note": "Small, but it's a third session when the SOW says two.",
+      "text": "Could we get one more agent training session? The night shift can't make either of the two slots.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.11,
+            "change_request": 0.89,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.85
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "training",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 1,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 1.01,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.17,
+            "1": 0.66,
+            "2": 0.16,
+            "3": 0.01
+          },
+          "confidence": 0.65
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.51
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1137,
+        "output_tokens": 173,
+        "cost": 0.000047754
+      }
+    },
+    {
+      "id": "r29",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "hypercare",
+      "size": "16_40",
+      "clarity": "clear",
+      "text": "Please extend hypercare to four weeks. We go live right before our busiest season.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.03,
+            "change_request": 0.97,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.96
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "hypercare",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 1,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 2.13,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.02,
+            "1": 0.21,
+            "2": 0.38,
+            "3": 0.39
+          },
+          "confidence": 0.14
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.48
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1134,
+        "output_tokens": 175,
+        "cost": 0.000047628
+      }
+    },
+    {
+      "id": "r30",
+      "raisedBy": "team",
+      "kind": "change_request",
+      "sowItem": "none",
+      "size": "4_16",
+      "clarity": "ambiguous",
+      "note": "Reporting isn't in the SOW at all. Sounds small, which is why it slips through.",
+      "text": "Ops manager wants a dashboard of SLA breaches per store for their Monday meeting. Asked if we can build it.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.03,
+            "change_request": 0.97,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.96
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0.44,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.56
+          },
+          "confidence": 0.51
+        },
+        "size": {
+          "type": "score",
+          "score": 1.39,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.02,
+            "1": 0.59,
+            "2": 0.38,
+            "3": 0.01
+          },
+          "confidence": 0.58
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.9
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1138,
+        "output_tokens": 173,
+        "cost": 0.000047796
+      }
+    },
+    {
+      "id": "r31",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "none",
+      "size": "4_16",
+      "clarity": "ambiguous",
+      "note": "Framed as a quick add-on while forms are being built, but CSAT surveys aren't in the SOW.",
+      "text": "While you're configuring the forms, can you quickly add a CSAT survey that goes out after a ticket is closed?",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.08,
+            "change_request": 0.92,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.89
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "ticket_forms",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0.93,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.07
+          },
+          "confidence": 0.92
+        },
+        "size": {
+          "type": "score",
+          "score": 0.86,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.21,
+            "1": 0.73,
+            "2": 0.06,
+            "3": 0
+          },
+          "confidence": 0.73
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.9
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1140,
+        "output_tokens": 174,
+        "cost": 0.00004788
+      }
+    },
+    {
+      "id": "r32",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "zendesk_migration",
+      "size": "4_16",
+      "clarity": "clear",
+      "text": "Our auditors want 3 years of ticket history, not 2. Can the migration cover the extra year?",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.03,
+            "change_request": 0.97,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.96
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "zendesk_migration",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 1,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 2,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.24,
+            "2": 0.5,
+            "3": 0.25
+          },
+          "confidence": 0.49
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.52
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1139,
+        "output_tokens": 177,
+        "cost": 0.000047838
+      }
+    },
+    {
+      "id": "r33",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "shopify_lookup",
+      "size": "16_40",
+      "clarity": "clear",
+      "text": "Can we set up an auto-reply for 'where is my order' emails that pulls the tracking status from Shopify?",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.24,
+            "change_request": 0.76,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.68
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "shopify_lookup",
+          "probabilities": {
+            "email_channels": 0.06,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0.87,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.07
+          },
+          "confidence": 0.85
+        },
+        "size": {
+          "type": "score",
+          "score": 1.73,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.33,
+            "2": 0.57,
+            "3": 0.09
+          },
+          "confidence": 0.56
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.89
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1140,
+        "output_tokens": 176,
+        "cost": 0.00004788
+      }
+    },
+    {
+      "id": "r34",
+      "raisedBy": "customer",
+      "kind": "change_request",
+      "sowItem": "training",
+      "size": "4_16",
+      "clarity": "ambiguous",
+      "note": "A new audience and topic (team leads, reporting), not one of the agreed sessions.",
+      "text": "Can you train our team leads on building reports? Separate from the agent sessions, maybe 2 hours.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "change_request",
+          "probabilities": {
+            "in_scope": 0.08,
+            "change_request": 0.92,
+            "blocker": 0,
+            "noise": 0
+          },
+          "confidence": 0.89
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "training",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0.91,
+            "hypercare": 0,
+            "none": 0.09
+          },
+          "confidence": 0.9
+        },
+        "size": {
+          "type": "score",
+          "score": 0.55,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.53,
+            "1": 0.39,
+            "2": 0.07,
+            "3": 0.01
+          },
+          "confidence": 0.44
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.83
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1137,
+        "output_tokens": 173,
+        "cost": 0.000047754
+      }
+    },
+    {
+      "id": "r35",
+      "raisedBy": "customer",
+      "kind": "blocker",
+      "sowItem": "zendesk_migration",
+      "size": null,
+      "clarity": "clear",
+      "text": "The Zendesk export keeps timing out at about 40k tickets. We can't get the rest out.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "blocker",
+          "probabilities": {
+            "in_scope": 0.19,
+            "change_request": 0.01,
+            "blocker": 0.8,
+            "noise": 0
+          },
+          "confidence": 0.73
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "zendesk_migration",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 1,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 2.24,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.01,
+            "1": 0.15,
+            "2": 0.42,
+            "3": 0.42
+          },
+          "confidence": 0.41
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.85
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1139,
+        "output_tokens": 177,
+        "cost": 0.000047838
+      }
+    },
+    {
+      "id": "r36",
+      "raisedBy": "customer",
+      "kind": "blocker",
+      "sowItem": "shopify_lookup",
+      "size": null,
+      "clarity": "clear",
+      "text": "Heads up, our IT team hasn't approved the Shopify app install yet, so you won't be able to connect it this week.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "blocker",
+          "probabilities": {
+            "in_scope": 0.02,
+            "change_request": 0,
+            "blocker": 0.87,
+            "noise": 0.11
+          },
+          "confidence": 0.83
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "shopify_lookup",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 1,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 1.53,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.13,
+            "1": 0.39,
+            "2": 0.3,
+            "3": 0.18
+          },
+          "confidence": 0.21
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.59
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1144,
+        "output_tokens": 176,
+        "cost": 0.000048048
+      }
+    },
+    {
+      "id": "r37",
+      "raisedBy": "customer",
+      "kind": "blocker",
+      "sowItem": "email_channels",
+      "size": null,
+      "clarity": "clear",
+      "text": "Our security team rejected the DNS change for orders@, so emails aren't forwarding to the new system.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "blocker",
+          "probabilities": {
+            "in_scope": 0.04,
+            "change_request": 0,
+            "blocker": 0.96,
+            "noise": 0
+          },
+          "confidence": 0.95
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "email_channels",
+          "probabilities": {
+            "email_channels": 1,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 1.07,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.14,
+            "1": 0.67,
+            "2": 0.17,
+            "3": 0.02
+          },
+          "confidence": 0.65
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.81
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1137,
+        "output_tokens": 174,
+        "cost": 0.000047754
+      }
+    },
+    {
+      "id": "r38",
+      "raisedBy": "customer",
+      "kind": "blocker",
+      "sowItem": "agent_groups",
+      "size": null,
+      "clarity": "clear",
+      "text": "Half the agents can't accept their invites, the link says it has expired.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "blocker",
+          "probabilities": {
+            "in_scope": 0.1,
+            "change_request": 0,
+            "blocker": 0.9,
+            "noise": 0
+          },
+          "confidence": 0.87
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "agent_groups",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0.92,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0.02,
+            "none": 0.06
+          },
+          "confidence": 0.91
+        },
+        "size": {
+          "type": "score",
+          "score": 0.59,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.48,
+            "1": 0.46,
+            "2": 0.05,
+            "3": 0.01
+          },
+          "confidence": 0.41
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.76
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1132,
+        "output_tokens": 174,
+        "cost": 0.000047544
+      }
+    },
+    {
+      "id": "r39",
+      "raisedBy": "team",
+      "kind": "blocker",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "Still waiting on Northwind to send admin credentials for the new instance. Configuration can't start without them.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "blocker",
+          "probabilities": {
+            "in_scope": 0.01,
+            "change_request": 0,
+            "blocker": 0.99,
+            "noise": 0
+          },
+          "confidence": 0.99
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0.03,
+            "ticket_forms": 0.01,
+            "sla_tiers": 0,
+            "agent_groups": 0.06,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0.05,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.85
+          },
+          "confidence": 0.83
+        },
+        "size": {
+          "type": "score",
+          "score": 1.08,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.47,
+            "1": 0.2,
+            "2": 0.11,
+            "3": 0.22
+          },
+          "confidence": 0
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.45
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1138,
+        "output_tokens": 173,
+        "cost": 0.000047796
+      }
+    },
+    {
+      "id": "r40",
+      "raisedBy": "customer",
+      "kind": "blocker",
+      "sowItem": "zendesk_migration",
+      "size": null,
+      "clarity": "clear",
+      "text": "The test import created duplicate customers. We've paused the mapping review until that's sorted.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "blocker",
+          "probabilities": {
+            "in_scope": 0.04,
+            "change_request": 0,
+            "blocker": 0.96,
+            "noise": 0
+          },
+          "confidence": 0.95
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "zendesk_migration",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0.02,
+            "zendesk_migration": 0.98,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 0.98
+        },
+        "size": {
+          "type": "score",
+          "score": 1.93,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.02,
+            "1": 0.24,
+            "2": 0.54,
+            "3": 0.2
+          },
+          "confidence": 0.52
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.85
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1134,
+        "output_tokens": 177,
+        "cost": 0.000047628
+      }
+    },
+    {
+      "id": "r41",
+      "raisedBy": "customer",
+      "kind": "blocker",
+      "sowItem": "sla_tiers",
+      "size": null,
+      "clarity": "ambiguous",
+      "note": "The blocker is on the customer side (legal sign-off), but it still stops the SLA build.",
+      "text": "Please hold off on the SLA build. Legal hasn't signed off on the response times yet.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "in_scope",
+          "probabilities": {
+            "in_scope": 0.62,
+            "change_request": 0.01,
+            "blocker": 0.37,
+            "noise": 0
+          },
+          "confidence": 0.49
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "sla_tiers",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 1,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 1.82,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.04,
+            "1": 0.25,
+            "2": 0.56,
+            "3": 0.15
+          },
+          "confidence": 0.52
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.67
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1135,
+        "output_tokens": 175,
+        "cost": 0.00004767
+      }
+    },
+    {
+      "id": "r42",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "Got it, thanks!",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 1
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0.01,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.99
+          },
+          "confidence": 0.99
+        },
+        "size": {
+          "type": "score",
+          "score": 1.5,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.43,
+            "1": 0.07,
+            "2": 0.07,
+            "3": 0.43
+          },
+          "confidence": 0
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.58
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1121,
+        "output_tokens": 172,
+        "cost": 0.000047082
+      }
+    },
+    {
+      "id": "r43",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "ambiguous",
+      "note": "Useful information, but it asks for nothing.",
+      "text": "Looping in Priya from our ops team, she'll be the main contact for the DE stores from now on.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0.03,
+            "change_request": 0.01,
+            "blocker": 0,
+            "noise": 0.96
+          },
+          "confidence": 0.95
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0.01,
+            "ticket_forms": 0.08,
+            "sla_tiers": 0,
+            "agent_groups": 0.36,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.55
+          },
+          "confidence": 0.49
+        },
+        "size": {
+          "type": "score",
+          "score": 0.43,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.63,
+            "1": 0.32,
+            "2": 0.04,
+            "3": 0.01
+          },
+          "confidence": 0.57
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.39
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1140,
+        "output_tokens": 172,
+        "cost": 0.00004788
+      }
+    },
+    {
+      "id": "r44",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "Happy Diwali to the whole team!",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 1
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 1
+          },
+          "confidence": 1
+        },
+        "size": {
+          "type": "score",
+          "score": 0.44,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.81,
+            "1": 0.05,
+            "2": 0.03,
+            "3": 0.11
+          },
+          "confidence": 0.56
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.3
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1124,
+        "output_tokens": 172,
+        "cost": 0.000047208
+      }
+    },
+    {
+      "id": "r45",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "Great call today, it really feels like we're on track.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 1
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0.01,
+            "training": 0,
+            "hypercare": 0.01,
+            "none": 0.98
+          },
+          "confidence": 0.98
+        },
+        "size": {
+          "type": "score",
+          "score": 1.33,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.48,
+            "1": 0.09,
+            "2": 0.06,
+            "3": 0.37
+          },
+          "confidence": 0
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.46
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1129,
+        "output_tokens": 172,
+        "cost": 0.000047418
+      }
+    },
+    {
+      "id": "r46",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "Out of office until Monday. Contact Sam for anything urgent.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 1
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0.02,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0.03,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0.01,
+            "training": 0,
+            "hypercare": 0.02,
+            "none": 0.92
+          },
+          "confidence": 0.91
+        },
+        "size": {
+          "type": "score",
+          "score": 1.48,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.38,
+            "1": 0.16,
+            "2": 0.08,
+            "3": 0.38
+          },
+          "confidence": 0
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.67
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1128,
+        "output_tokens": 172,
+        "cost": 0.000047376
+      }
+    },
+    {
+      "id": "r47",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "Thanks, the forms look good now.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 1
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "ticket_forms",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0.99,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0,
+            "none": 0.01
+          },
+          "confidence": 0.99
+        },
+        "size": {
+          "type": "score",
+          "score": 0.64,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.69,
+            "1": 0.11,
+            "2": 0.07,
+            "3": 0.13
+          },
+          "confidence": 0.36
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.41
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1124,
+        "output_tokens": 173,
+        "cost": 0.000047208
+      }
+    },
+    {
+      "id": "r48",
+      "raisedBy": "customer",
+      "kind": "noise",
+      "sowItem": "none",
+      "size": null,
+      "clarity": "clear",
+      "text": "FYI our CEO might join the go-live call.",
+      "answers": {
+        "kind": {
+          "type": "choice",
+          "choice": "noise",
+          "probabilities": {
+            "in_scope": 0,
+            "change_request": 0,
+            "blocker": 0,
+            "noise": 1
+          },
+          "confidence": 1
+        },
+        "sow_item": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "email_channels": 0,
+            "ticket_forms": 0,
+            "sla_tiers": 0,
+            "agent_groups": 0,
+            "shopify_lookup": 0,
+            "zendesk_migration": 0,
+            "training": 0,
+            "hypercare": 0.2,
+            "none": 0.8
+          },
+          "confidence": 0.78
+        },
+        "size": {
+          "type": "score",
+          "score": 1.23,
+          "legend": {
+            "0": "Under 4 hours",
+            "1": "4 to 16 hours",
+            "2": "16 to 40 hours",
+            "3": "Over 40 hours"
+          },
+          "probabilities": {
+            "0": 0.38,
+            "1": 0.24,
+            "2": 0.15,
+            "3": 0.23
+          },
+          "confidence": 0
+        },
+        "needs_review": {
+          "type": "noul",
+          "noul": 0.41
+        }
+      },
+      "model": "typesafe/jev-1.14-20261014",
+      "usage": {
+        "input_tokens": 1127,
+        "output_tokens": 172,
+        "cost": 0.000047334
+      }
+    }
+  ]
+}
